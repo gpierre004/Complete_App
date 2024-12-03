@@ -9,6 +9,9 @@ const { sequelize, testConnection } = require('./models');
 
 const app = express();
 
+// Enable trust proxy - this is required when running behind a reverse proxy
+app.set('trust proxy', 1);
+
 // Middleware
 app.use(helmet());
 app.use(cors());
@@ -31,8 +34,7 @@ app.use((err, req, res, next) => {
 });
 
 // Database connection and server start
-const PORT = process.env.PORT || 3000;
-
+const PORT = process.env.PORT || 3001;  // Changed from 3000 to 3001
 const startServer = async () => {
   try {
     // Test database connection
