@@ -95,8 +95,7 @@ const Dashboard = () => {
   };
 
   // Calculate portfolio totals
-  const portfolioSummary = transactions.reduce((acc, transaction) => {
-    const key = transaction.ticker;
+  const portfolioSummary = transactions.reduce((acc, transaction) => {  const key = transaction.ticker;
     if (!acc[key]) {
       acc[key] = {
         ticker: transaction.ticker,
